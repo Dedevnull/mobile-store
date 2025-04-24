@@ -6,7 +6,7 @@ The application has two views:
 1. **Home**: Product list
 2. **Detail**: Product page
 
-##Technologies
+## Technologies
 - **Framework**: React
 - **Package**: Vite
 - **Routing**: React DOM Router
@@ -18,3 +18,20 @@ The application has two views:
 - `npm run build` — Builds for production (output in `dist/`)
 - `npm test` — Runs unit tests
 - `npm run lint` — Checks code style and quality with ESLint
+
+## Install and execute the aplication
+
+1. Clone the repository
+```bash
+   git clone https://github.com/tuusuario/compra-moviles.git
+   cd compra-moviles
+```
+2. Install dependencies
+```bash
+   npm install
+```
+3. Execute aplication
+```bash
+   npm start
+```
+4. Open your browser and go to [http://localhost:5173](http://localhost:5173/)
