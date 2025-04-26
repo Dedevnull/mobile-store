@@ -19,7 +19,7 @@ export const Breadcrumbs = () => {
 
           return (
             <li key={to} className="flex items-center gap-2">
-              <span>/</span>
+              <span>&gt;</span>
               {
                 isLast ? (
                   <span className="text-gray-300 capitalize">{value}</span>
