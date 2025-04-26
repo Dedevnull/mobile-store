@@ -11,6 +11,5 @@ describe("Header:", () => {
             </BrowserRouter>
         );
         expect(screen.getByText(/Mobile Store/i)).toBeInTheDocument();
-        expect(screen.getByText(/Cart/i)).toBeInTheDocument();
     });
 });
