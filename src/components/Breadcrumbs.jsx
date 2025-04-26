@@ -7,9 +7,9 @@ export const Breadcrumbs = () => {
 
   return (
     <nav className="text-sm text-white">
-      <ol className="flex gap-2">
+      <ol className="flex gap-2 font-semibold text-lg">
         <li>
-          <Link to="/" className="hover:underline text-blue-400">
+          <Link to="/" className="hover:underline text-blue-400 ">
             Home
           </Link>
         </li>

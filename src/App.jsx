@@ -5,7 +5,9 @@ const App = () => (
   <>
     <div className='min-h-screen flex flex-col bg-gray-50'>
       <Header />
-      <AppRoutes />
+      <div className='min-h-screen pt-25'>
+        <AppRoutes />
+      </div>
     </div>
   </>
 );
