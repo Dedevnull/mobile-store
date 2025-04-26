@@ -1,7 +1,8 @@
-import js from '@eslint/js'
-import globals from 'globals'
-import reactHooks from 'eslint-plugin-react-hooks'
-import reactRefresh from 'eslint-plugin-react-refresh'
+import js from '@eslint/js';
+import globals from 'globals';
+import reactHooks from 'eslint-plugin-react-hooks';
+import reactRefresh from 'eslint-plugin-react-refresh';
+import pluginVitest from "eslint-plugin-vitest";
 
 export default [
   { ignores: ['dist'] },
@@ -28,6 +29,20 @@ export default [
         'warn',
         { allowConstantExport: true },
       ],
+      "semi": ["error", "always"],
     },
   },
-]
+  {
+    files: ['**/*.test.js', '**/*.test.jsx'],
+    plugins: {
+      vitest: pluginVitest,
+    },
+    languageOptions: {
+      globals: pluginVitest.environments.env.globals,
+    },
+    rules: {
+      ...pluginVitest.configs.recommended.rules,
+      "vitest/max-nested-describe": ["error", { "max": 3 }],
+    }
+  },
+];

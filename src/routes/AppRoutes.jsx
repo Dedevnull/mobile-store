@@ -1,7 +1,7 @@
-import React from 'react'
-import { Route, Routes } from 'react-router'
-import { ProductListPage } from '../pages/ProductListPage'
-import { ProductDetailsPage } from '../pages/ProductDetailsPage'
+import React from 'react';
+import { Route, Routes } from 'react-router';
+import { ProductListPage } from '../pages/ProductListPage';
+import { ProductDetailsPage } from '../pages/ProductDetailsPage';
 
 const AppRoutes = () => {
     return (
@@ -12,7 +12,7 @@ const AppRoutes = () => {
                 <Route path=":id" element={<ProductDetailsPage />} />
             </Route>
         </Routes>
-    )
-}
+    );
+};
 
-export default AppRoutes
+export default AppRoutes;
