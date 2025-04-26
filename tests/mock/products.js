@@ -27,4 +27,4 @@ export const productsMockData = [
         "price": "230",
         "imgUrl": "https://itx-frontend-test.onrender.com/images/xyPoqGJxYR4Nn3yVGQcfI.jpg"
     },
-]
+];

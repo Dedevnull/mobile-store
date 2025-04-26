@@ -7,8 +7,6 @@ import { SearchInput } from '../components/SearchInput';
 export const ProductListPage = () => {
     const { products, searchTerm, setSearchTerm, loading, error } = useProducts();
 
-
-
     if (loading) return <Loader />;
     if (error) return <div>Error: {error}</div>;
 
@@ -21,7 +19,7 @@ export const ProductListPage = () => {
             <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 pt-10'>
                 {
                     products.map((product) => {
-                        return <ProductCard key={`product_list_item_${product.id}`} product={product} />
+                        return <ProductCard key={`product_list_item_${product.id}`} product={product} />;
                     })
                 }
             </div>
