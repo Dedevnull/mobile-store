@@ -2,19 +2,25 @@ import React from 'react'
 import { Link } from 'react-router';
 
 export const ProductCard = ({ product, onAddToCart }) => {
+    const { id, name, brand, model, price, imgUrl } = product;
     return (
-        <Link to={`/products/${product.id}`} className="bg-white rounded-lg shadow-md overflow-hidden flex flex-col hover:shadow-xl transition duration-300">
-            <img
-                src={product.image}
-                alt={product.name}
-                className="h-48 w-full object-cover"
-            />
+        <Link to={`/products/${id}`} className="bg-white rounded-lg shadow-md overflow-hidden flex flex-col hover:shadow-xl transition duration-300">
+            <div className='flex justify-center w-full'>
+                <img
+                    src={imgUrl}
+                    alt={name}
+                    className="w-full max-w-50 object-cover"
+                />
+            </div>
             <div className="p-4 flex flex-col flex-grow">
-                <h2 className="text-xl font-semibold text-gray-800">{product.name}</h2>
-                <p className="text-gray-600 text-sm mt-2 flex-grow">{product.description}</p>
+                <h2 className="text-lg font-semibold text-gray-600">{brand}, {model}</h2>
+                <p className="text-gray-800 text-lg font-semibold mt-2 flex-grow">{price === "" ? "" : `${price} €`}</p>
                 <button
-                    onClick={() => onAddToCart(product)}
-                    className="mt-4 bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                    onClick={(e) => {
+                        e.preventDefault();
+                        onAddToCart(product);
+                    }}
+                    className="mt-4 bg-slate-800 hover:bg-slate-700 text-white font-bold py-2 px-4 rounded"
                 >
                     Add to Cart
                 </button>
