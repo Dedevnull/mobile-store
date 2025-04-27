@@ -1,4 +1,4 @@
-const CACHE_DURATION = 60 * 60 * 1000;
+const VITE_CACHE_DURATION_MILLIS = import.meta.env.VITE_CACHE_DURATION_MILLIS;
 
 export const getCache = (key) => {
   const cached = localStorage.getItem(key);
@@ -13,5 +13,5 @@ export const setCache = (key, data) => {
 };
 
 export const isCacheValid = (timestamp) => {
-  return Date.now() - timestamp < CACHE_DURATION;
+  return Date.now() - timestamp < VITE_CACHE_DURATION_MILLIS;
 };
