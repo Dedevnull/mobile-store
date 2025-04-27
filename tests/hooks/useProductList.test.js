@@ -1,12 +1,12 @@
 import { act, renderHook, waitFor } from '@testing-library/react';
 import { beforeEach, expect, vi } from 'vitest';
-import { useProducts } from '../../src/hooks/useProducts';
+import { useProductList } from '../../src/hooks/useProductList';
 import * as fetchProductsService from '../../src/services/fetchProducts';
 import { productsMockData } from '../mock/products';
 
 const mockProducts = productsMockData;
 
-describe('useProducts:', () => {
+describe('useProductList:', () => {
     beforeEach(() => {
         vi.clearAllMocks();
     });
@@ -14,7 +14,7 @@ describe('useProducts:', () => {
     test('Should fetch and return products', async () => {
         vi.spyOn(fetchProductsService, 'fetchProducts').mockResolvedValue(mockProducts);
 
-        const { result } = renderHook(() => useProducts());
+        const { result } = renderHook(() => useProductList());
 
         expect(result.current.loading).toBe(true);
 
@@ -29,7 +29,7 @@ describe('useProducts:', () => {
     test('Should handle fetch error', async () => {
         vi.spyOn(fetchProductsService, 'fetchProducts').mockRejectedValue(new Error('Failed to fetch'));
 
-        const { result } = renderHook(() => useProducts());
+        const { result } = renderHook(() => useProductList());
 
         await waitFor(() => {
             expect(result.current.loading).toBe(false);
@@ -41,7 +41,7 @@ describe('useProducts:', () => {
     test('Should filter products by search term', async () => {
         vi.spyOn(fetchProductsService, 'fetchProducts').mockResolvedValue(mockProducts);
 
-        const { result } = renderHook(() => useProducts());
+        const { result } = renderHook(() => useProductList());
 
         await waitFor(() => {
             expect(result.current.loading).toBe(false);
