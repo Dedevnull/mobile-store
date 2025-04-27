@@ -1,17 +1,17 @@
 import React from 'react';
 import { Loader } from '../components/Loader';
 import { ProductCard } from '../components/ProductCard';
-import { useProducts } from '../hooks/useProducts';
+import { useProductList } from '../hooks/useProductList';
 import { SearchInput } from '../components/SearchInput';
 
 export const ProductListPage = () => {
-    const { products, searchTerm, setSearchTerm, loading, error } = useProducts();
-
+    const { products, searchTerm, setSearchTerm, loading, error } = useProductList();
+    
     if (loading) return <Loader />;
     if (error) return <div>Error: {error}</div>;
 
     return (
-        <div className='min-w-full px-5 xl:px-[15%] bg-slate-50 flex flex-col justify-center'>
+        <div className='min-w-full px-5 bg-slate-50 flex flex-col justify-center'>
             <div className='flex flex-col md:flex-row lg:flex-row justify-between'>
                 <h2 className="text-3xl font-bold mb-8 text-center">Mobile Devices</h2>
                 <SearchInput value={searchTerm} onSearch={setSearchTerm} />
