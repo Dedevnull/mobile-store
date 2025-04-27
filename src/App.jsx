@@ -5,7 +5,7 @@ const App = () => (
   <>
     <div className='min-h-screen flex flex-col bg-gray-50'>
       <Header />
-      <div className='min-h-screen pt-25'>
+      <div className='min-h-screen xl:px-[15%] pt-25'>
         <AppRoutes />
       </div>
     </div>
