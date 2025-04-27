@@ -18,7 +18,7 @@ describe('Cache Utilities:', () => {
   });
 
   test('Should retrieve cached data if it exists', () => {
-    const mockData = productsMockData
+    const mockData = productsMockData;
     const timestamp = Date.now();
     const cachedData = JSON.stringify({ timestamp, data: mockData });
 
