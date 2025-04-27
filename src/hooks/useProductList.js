@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { fetchProducts } from '../services/fetchProducts';
 
-export const useProducts = () => {
+export const useProductList = () => {
   const [products, setProducts] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
   const [loading, setLoading] = useState(true);

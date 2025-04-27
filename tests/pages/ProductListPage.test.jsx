@@ -1,17 +1,17 @@
 import { render, screen } from '@testing-library/react';
-import { describe, expect, test, vi } from 'vitest';
-import { ProductListPage } from '../../src/pages/ProductListPage';
-import { useProducts } from '../../src/hooks/useProducts';
-import { productsMockData } from '../mock/products';
 import { BrowserRouter } from 'react-router';
+import { describe, expect, test, vi } from 'vitest';
+import { useProductList } from '../../src/hooks/useProductList';
+import { ProductListPage } from '../../src/pages/ProductListPage';
+import { productsMockData } from '../mock/products';
 
-vi.mock('../../src/hooks/useProducts', () => ({
-    useProducts: vi.fn(),
+vi.mock('../../src/hooks/useProductList', () => ({
+    useProductList: vi.fn(),
 }));
 
 describe("ProductListPage:", () => {
     test('Shows loader when loading', () => {
-        useProducts.mockReturnValue({
+        useProductList.mockReturnValue({
             products: [],
             searchTerm: '',
             setSearchTerm: vi.fn(),
@@ -25,7 +25,7 @@ describe("ProductListPage:", () => {
     });
     
     test('Shows error message when error exists', () => {
-        useProducts.mockReturnValue({
+        useProductList.mockReturnValue({
             products: [],
             searchTerm: '',
             setSearchTerm: vi.fn(),
@@ -39,7 +39,7 @@ describe("ProductListPage:", () => {
     });
 
     test('Renders products list', () => {
-        useProducts.mockReturnValue({
+        useProductList.mockReturnValue({
             products: productsMockData,
             searchTerm: '',
             setSearchTerm: vi.fn(),
