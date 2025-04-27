@@ -5,8 +5,8 @@ const CACHE_KEY = 'products_cache';
 
 export const fetchProducts = async () => {
     const cachedData = getCache(CACHE_KEY);
-
-    if (cachedData && isCacheValid()) {
+    
+    if (cachedData && isCacheValid(cachedData.timestamp)) {
         return cachedData.data;
     }
 
