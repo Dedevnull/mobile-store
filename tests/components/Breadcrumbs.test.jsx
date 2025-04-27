@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react';
 import { Breadcrumbs } from '../../src/components/Breadcrumbs';
 import { MemoryRouter } from 'react-router';
-import { describe, test } from 'vitest';
+import { describe, expect, test } from 'vitest';
 
 describe("Breadcrumbs:", () => {
     const renderWithRouter = (path) => render(

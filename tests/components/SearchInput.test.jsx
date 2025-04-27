@@ -1,5 +1,5 @@
-import { render, screen, fireEvent } from '@testing-library/react';
-import { describe, test,  } from 'vitest';
+import { fireEvent, render, screen } from '@testing-library/react';
+import { describe, expect, test, } from 'vitest';
 import { SearchInput } from '../../src/components/SearchInput';
 
 describe("SearchInput:", () => {

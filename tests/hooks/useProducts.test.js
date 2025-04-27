@@ -1,5 +1,5 @@
 import { act, renderHook, waitFor } from '@testing-library/react';
-import { expect, vi } from 'vitest';
+import { beforeEach, expect, vi } from 'vitest';
 import { useProducts } from '../../src/hooks/useProducts';
 import * as fetchProductsService from '../../src/services/fetchProducts';
 import { productsMockData } from '../mock/products';

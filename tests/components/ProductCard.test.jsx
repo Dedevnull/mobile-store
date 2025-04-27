@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import { MemoryRouter } from 'react-router';
-import { test } from 'vitest';
+import { describe, expect, test } from 'vitest';
 import { ProductCard } from '../../src/components/ProductCard';
 import { productsMockData } from '../mock/products';
 
