@@ -4,7 +4,6 @@ import { useProducts } from '../../src/hooks/useProducts';
 import * as fetchProductsService from '../../src/services/fetchProducts';
 import { productsMockData } from '../mock/products';
 
-// Mocks
 const mockProducts = productsMockData;
 
 describe('useProducts:', () => {
