@@ -12,7 +12,7 @@ export const useProduct = (id) => {
           const data = await fetchProductDetails(id);
           setProduct(data);
         } catch (err) {
-          setError('Failed to fetch product details');
+          setError(err.message);
         } finally {
           setLoading(false);
         }
