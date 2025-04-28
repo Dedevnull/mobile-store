@@ -1,13 +1,12 @@
 import React from 'react';
 import { useParams } from 'react-router';
 import { Loader } from '../components/Loader';
-import { useProduct } from '../hooks/useProduct';
-import { AddToCardButton } from '../components/AddToCardButton';
-import { ProductDetailDescription } from '../components/ProductDetailsDescription';
 import { ProductActions } from '../components/ProductActions';
+import { ProductDetailDescription } from '../components/ProductDetailsDescription';
+import { useProduct } from '../hooks/useProduct';
 
 export const ProductDetailsPage = () => {
-  const { id } = useParams();  // Obtiene el id del producto desde la URL
+  const { id } = useParams();
   const { product, loading, error } = useProduct(id);
 
   if (loading) return <Loader />;
