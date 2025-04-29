@@ -10,9 +10,11 @@ export const fetchProductDetails = async (id) => {
     }
 
     const response = await fetch(`${VITE_API_URL}/api/product/${id}`);
+
     if (!response.ok) {
         throw new Error('Failed to fetch product');
     }
+    
     const data = await response.json();
 
     setCache(`${CACHE_KEY}_${id}`, data);
