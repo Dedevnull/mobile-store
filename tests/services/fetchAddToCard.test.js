@@ -27,6 +27,9 @@ describe('Fetch Add To Cart:', () => {
         expect(data).toEqual({ count: 1 });
         expect(fetch).toHaveBeenCalledWith(`${VITE_API_URL}/api/cart`, {
             method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
             body: JSON.stringify(mockData),
         });
     });
