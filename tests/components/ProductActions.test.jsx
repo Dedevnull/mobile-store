@@ -1,5 +1,5 @@
 import { fireEvent, render, screen } from '@testing-library/react';
-import { describe, expect } from 'vitest';
+import { describe, expect, vi } from 'vitest';
 import { ProductActions } from '../../src/components/ProductActions';
 import { CartContext } from '../../src/contexts/CartContext';
 import * as service from '../../src/services/fetchAddToCart';
@@ -45,12 +45,12 @@ describe("ProductActions:", () => {
     });
 
     test('Should alert when form is submitted without selecting options', () => {
-        global.alert = vi.fn();
+        vi.stubGlobal('alert', vi.fn());
         renderWithContext();
 
         fireEvent.submit(screen.getByRole('button'));
 
-        expect(global.alert).toHaveBeenCalledWith("Please select a color or storage");
+        expect(alert).toHaveBeenCalledWith("Please select a color or storage");
     });
 
     test('Should submits the form and calls increaseCount on success', async () => {

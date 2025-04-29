@@ -40,7 +40,7 @@ describe('Select:', () => {
                 name="colors"
             />
         );
-        options.forEach((option, idx) => {
+        options.forEach((option) => {
             const optionTag = screen.getByRole('option', { name: option.name });
             expect(optionTag).toBeInTheDocument();
             expect(optionTag).toHaveValue(JSON.stringify(option));

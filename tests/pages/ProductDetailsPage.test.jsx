@@ -39,7 +39,7 @@ describe("ProductDetailsPage", () => {
             model: "Iconia Talk S",
             imgUrl: "https://itx-frontend-test.onrender.com/images/ZmGrkLRPXOTpxsU4jjAcv.jpg",
             options: { colors: [], storages: [] }
-        }
+        };
 
         useProduct.mockReturnValue({
             product: mockProduct,
