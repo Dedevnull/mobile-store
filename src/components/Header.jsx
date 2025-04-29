@@ -20,7 +20,7 @@ export const Header = () => {
                 <div className='py-1 px-3 text-lg font-light text-white hover:text-sky-300 rounded-2xl hover:bg-slate-700 transition duration-100'>
                     <span className='font-semibold text-lg flex items-center text-blue-400'>
                         <IoCart className='text-3xl' />
-                        { count !== 1 && <span className='mt-2 font-bold text-sm text-blue-400'>{count}</span>}
+                        { count > 0 && <span className='mt-2 font-bold text-sm text-blue-400'>{count}</span>}
                     </span>
                 </div>
             </div>
