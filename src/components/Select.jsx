@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
-export const Select = ({ options = [], onChange, name, value, label, placeholder }) => {
-    const [selectedValue, setSelectedValue] = useState(value || '');
+export const Select = ({ options = [], onChange, name, label, placeholder }) => {
+    const [selectedValue, setSelectedValue] = useState('');
     const handleChange = (event) => {
         const { value } = event.target;
         setSelectedValue(value);
@@ -11,10 +11,10 @@ export const Select = ({ options = [], onChange, name, value, label, placeholder
     };
 
     useEffect(() => {
-        if (options.length === 1 && !value) {
+        if (options.length === 1) {
             setSelectedValue(JSON.stringify(options[0]));
         }
-    }, [options, value]);
+    }, [options]);
 
     return (
         <div>
