@@ -23,27 +23,24 @@ export const Select = ({ options = [], onChange, name, value, label, placeholder
                     <label className='font-bold text-gray-700'>{label}</label>
                 </div>
             )}
-            <div>
-
-                <select
-                    value={selectedValue}
-                    name={name}
-                    onChange={handleChange}
-                    className="border mx-1 p-2 rounded-md"
-                >
-                    <option value="" disabled>
-                        {placeholder || 'Select…'}
+            <select
+                value={selectedValue}
+                name={name}
+                onChange={handleChange}
+                className="border mx-1 p-2 rounded-md"
+            >
+                <option value="" disabled>
+                    {placeholder || 'Select…'}
+                </option>
+                {options.map((option,index) => (
+                    <option
+                        key={`${name}_${option.code}_${index}`}
+                        value={JSON.stringify(option)}
+                    >
+                        {option.name}
                     </option>
-                    {options.map((option) => (
-                        <option
-                            key={option.code}
-                            value={JSON.stringify(option)}
-                        >
-                            {option.name}
-                        </option>
-                    ))}
-                </select>
-            </div>
+                ))}
+            </select>
         </div>
     );
 };
