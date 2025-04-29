@@ -34,8 +34,8 @@ export const ProductDetailDescription = ({ product }) => {
                             : "N/A"
                     }
                 </li>
-                <li><strong>Dimentions:</strong> {product.dimentions ? product.dimentions : "N/A"}</li>
-                <li><strong>Weight:</strong> {product.weight ? product.weight : "N/A"}</li>
+                <li><strong>Dimentions:</strong>&nbsp;{product.dimentions ? product.dimentions : "N/A"}</li>
+                <li><strong>Weight:</strong>&nbsp;{product.weight ? product.weight : "N/A"}</li>
             </ul>
         </div>
     );
