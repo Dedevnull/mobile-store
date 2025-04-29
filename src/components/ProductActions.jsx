@@ -1,24 +1,18 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import { CartContext } from '../contexts/CartContext';
+import { useForm } from '../hooks/useForm';
 import { fetchAddToCart } from '../services/fetchAddToCart';
 import { Select } from './Select';
 
 export const ProductActions = ({ product }) => {
-    const { addOne } = useContext(CartContext);
+    const { increaseCount } = useContext(CartContext);
     const options = product.options;
     const { colors, storages } = options;
-    
-    const [form, setForm] = useState({
+
+    const { form, onChange } = useForm({
         colorCode: colors.length === 1 ? colors[0].code : null,
         storageCode: storages.length === 1 ? storages[0].code : null,
     });
-
-    const onChange = ({ name, value }) => {
-        setForm({
-            ...form,
-            [name]: value
-        });
-    };
 
     const addToCart = async (event) => {
         event.preventDefault();
@@ -28,7 +22,7 @@ export const ProductActions = ({ product }) => {
         }
 
         const added = await fetchAddToCart({ ...form, id: product.id });
-        if (added.count) addOne();
+        if (added.count) increaseCount(added.count);
     };
 
     return (
