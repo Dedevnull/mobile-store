@@ -20,6 +20,10 @@ The application has two views:
 - `npm test` — Runs unit tests
 - `npm run lint` — Checks code style and quality with ESLint
 
+## Requeriments
+
+Create a `.env` file similar to `.env.example` and replace `https://set-your-api-url.com/api` by the correct API URL
+
 ## Install and execute the aplication
 
 1. Clone the repository
