@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
 import { describe, expect, vi } from 'vitest';
 import { useProduct } from '../../src/hooks/useProduct';
 import { ProductDetailsPage } from '../../src/pages/ProductDetailsPage';
@@ -8,6 +8,15 @@ vi.mock('../../src/hooks/useProduct', () => ({
     useProduct: vi.fn(),
 }));
 
+const navigateMock = vi.fn();
+vi.mock('react-router', async () => {
+    const actual = await vi.importActual('react-router');
+    return {
+        ...actual,
+        useNavigate: () => navigateMock,
+    };
+});
+
 describe("ProductDetailsPage", () => {
 
     const renderWithRouter = () => render(
@@ -15,6 +24,7 @@ describe("ProductDetailsPage", () => {
             <ProductDetailsPage />
         </MemoryRouter>
     );
+
     test('Should show loader when loading', () => {
         useProduct.mockReturnValue({
             product: null,
@@ -59,5 +69,28 @@ describe("ProductDetailsPage", () => {
         const img = screen.getByRole('img');
         expect(img).toHaveAttribute('src', mockProduct.imgUrl);
         expect(img).toHaveAttribute('alt', `${mockProduct.brand}_${mockProduct.model}`);
+    });
+
+    test('Should calls navigate with -1 when clicked', () => {
+        const mockProduct = {
+            id: "ZmGrkLRPXOTpxsU4jjAcv",
+            brand: "Acer",
+            model: "Iconia Talk S",
+            imgUrl: "https://itx-frontend-test.onrender.com/images/ZmGrkLRPXOTpxsU4jjAcv.jpg",
+            options: { colors: [], storages: [] }
+        };
+
+        useProduct.mockReturnValue({
+            product: mockProduct,
+            loading: false,
+            error: null,
+        })
+
+        renderWithRouter();
+
+        const button = screen.getByRole('button', { name: "go back" });
+        fireEvent.click(button);
+
+        expect(navigateMock).toHaveBeenCalledWith(-1);
     });
 });
