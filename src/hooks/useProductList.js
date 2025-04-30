@@ -24,8 +24,13 @@ export const useProductList = () => {
 
   const filteredProducts = products.filter((product) => {
     const { brand, model } = product;
+    const brandModel = `${brand}, ${model}`;
     const searchTermLowerCase = searchTerm.toLowerCase();
-    return brand.toLowerCase().includes(searchTermLowerCase) || model.toLowerCase().includes(searchTermLowerCase);
+    return (
+      brandModel.toLowerCase().includes(searchTermLowerCase) ||
+      brand.toLowerCase().includes(searchTermLowerCase) ||
+      model.toLowerCase().includes(searchTermLowerCase)
+    );
   });
 
   return {
@@ -35,5 +40,5 @@ export const useProductList = () => {
     loading,
     error,
   };
-  
+
 };
