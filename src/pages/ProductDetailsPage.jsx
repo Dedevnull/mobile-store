@@ -16,7 +16,7 @@ export const ProductDetailsPage = () => {
 
   return (
     <div className='min-w-full px-5 bg-slate-50'>
-      <button onClick={() => navigate(-1)} className='cursor-pointer right-0 font-bold text-gray-800'><LuArrowBigLeftDash className='text-3xl' />go back</button>
+      <button onClick={() => navigate(-1)} className='cursor-pointer flex right-0 font-bold text-gray-800'><LuArrowBigLeftDash className='text-3xl' />go back</button>
       <div className='flex flex-col xl:flex-row lg:flex-row justify-center'>
         <div className="flex justify-center xl:w-1/2 lg:w-1/2">
           <img src={product.imgUrl} alt={`${product.brand}_${product.model}`} className="max-w-full max-h-[600px] object-contain" />
