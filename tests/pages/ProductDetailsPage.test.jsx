@@ -2,12 +2,19 @@ import { render, screen } from '@testing-library/react';
 import { describe, expect, vi } from 'vitest';
 import { useProduct } from '../../src/hooks/useProduct';
 import { ProductDetailsPage } from '../../src/pages/ProductDetailsPage';
+import { MemoryRouter } from 'react-router';
 
 vi.mock('../../src/hooks/useProduct', () => ({
     useProduct: vi.fn(),
 }));
 
 describe("ProductDetailsPage", () => {
+
+    const renderWithRouter = () => render(
+        <MemoryRouter>
+            <ProductDetailsPage />
+        </MemoryRouter>
+    );
     test('Should show loader when loading', () => {
         useProduct.mockReturnValue({
             product: null,
@@ -15,7 +22,7 @@ describe("ProductDetailsPage", () => {
             error: null,
         });
 
-        render(<ProductDetailsPage />);
+        renderWithRouter();
 
         expect(screen.getByRole('status')).toBeInTheDocument();
     });
@@ -27,7 +34,7 @@ describe("ProductDetailsPage", () => {
             error: "Failed to fetch product details",
         });
 
-        render(<ProductDetailsPage />);
+        renderWithRouter();
 
         expect(screen.getByText('Error: Failed to fetch product details')).toBeInTheDocument();
     });
@@ -47,7 +54,7 @@ describe("ProductDetailsPage", () => {
             error: null,
         });
 
-        render(<ProductDetailsPage />);
+        renderWithRouter();
 
         const img = screen.getByRole('img');
         expect(img).toHaveAttribute('src', mockProduct.imgUrl);
