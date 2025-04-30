@@ -1,10 +1,11 @@
 # Technical Test: Mobile Store
 
-## Description
-Mini-SPA in React (JavaScript ES6) to list and view mobile device details.
+## Mobile Store
+A mobile online store made with React. It allows you to view product details, add to cart and navigate through the application with a smooth experience.
 The application has two views:
+
 1. **Home**: Product list
-2. **Detail**: Product page
+2. **Detail**: Product details page
 
 ## Technologies
 - **Framework**: React
@@ -13,7 +14,7 @@ The application has two views:
 - **Lint**: ESLint
 - **Testing**: Vitest + Testing Library
 
-## Requirements / Scripts
+## Scripts
 - `npm start` — Starts the application in development mode (local server with hot reload)
 - `npm run build` — Builds for production (output in `dist/`)
 - `npm test` — Runs unit tests
@@ -23,8 +24,8 @@ The application has two views:
 
 1. Clone the repository
 ```bash
-   git clone https://github.com/tuusuario/compra-moviles.git
-   cd compra-moviles
+   git clone https://github.com/Dedevnull/mobile-store.git
+   cd mobile-store
 ```
 2. Install dependencies
 ```bash
