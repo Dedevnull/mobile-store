@@ -8,7 +8,7 @@ export const ProductDetailDescription = ({ product }) => {
             <ul>
                 <li><strong>Brand:</strong>&nbsp;{product.brand ? product.brand : "N/A"}</li>
                 <li><strong>Model:</strong>&nbsp;{product.model ? product.model : "N/A"}</li>
-                <li><strong>Price:</strong>&nbsp;{product.price ? product.price : "N/A"}</li>
+                <li><strong>Price:</strong>&nbsp;{product.price ? `${product.price}€` : "N/A"}</li>
                 <li><strong>CPU:</strong>&nbsp;{product.cpu ? product.cpu : "N/A"}</li>
                 <li><strong>RAM:</strong>&nbsp;{product.ram ? product.ram : "N/A"}</li>
                 <li><strong>OS:</strong>&nbsp;{product.os ? product.os : "N/A"}</li>

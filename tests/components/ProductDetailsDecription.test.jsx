@@ -28,7 +28,7 @@ describe('ProductDetailDescription', () => {
         // List items
         expect(screen.getByText('TestBrand')).toBeInTheDocument();
         expect(screen.getByText('X100')).toBeInTheDocument();
-        expect(screen.getByText('499')).toBeInTheDocument();
+        expect(screen.getByText('499€')).toBeInTheDocument();
         expect(screen.getByText('Octa-core 2.0GHz')).toBeInTheDocument();
         expect(screen.getByText('8GB')).toBeInTheDocument();
         expect(screen.getByText('TestOS 1.0')).toBeInTheDocument();
