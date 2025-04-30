@@ -30,7 +30,7 @@ describe('Fetch Products:', () => {
         const data = await fetchProducts();
 
         expect(data).toEqual(mockData);
-        expect(fetch).toHaveBeenCalledWith(`${import.meta.env.VITE_API_URL}/api/product`);
+        expect(fetch).toHaveBeenCalledWith(`${import.meta.env.VITE_API_URL}/product`);
         expect(setCache).toHaveBeenCalledWith('products_cache', mockData);
     });
     
@@ -63,7 +63,7 @@ describe('Fetch Products:', () => {
 
         const data = await fetchProducts();
 
-        expect(fetch).toHaveBeenCalledWith(`${import.meta.env.VITE_API_URL}/api/product`);
+        expect(fetch).toHaveBeenCalledWith(`${import.meta.env.VITE_API_URL}/product`);
         expect(setCache).toHaveBeenCalledWith('products_cache', productsMockData);
         expect(data).toEqual(productsMockData);
     });
@@ -76,6 +76,6 @@ describe('Fetch Products:', () => {
         ));
 
         await expect(fetchProducts()).rejects.toThrow('Failed to fetch products');
-        expect(fetch).toHaveBeenCalledWith(`${import.meta.env.VITE_API_URL}/api/product`);
+        expect(fetch).toHaveBeenCalledWith(`${import.meta.env.VITE_API_URL}/product`);
     });
 });

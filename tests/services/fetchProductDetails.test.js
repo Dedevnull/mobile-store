@@ -30,7 +30,7 @@ describe('Fetch Product Details:', () => {
         const data = await fetchProductDetails(mockData.id);
 
         expect(data).toEqual(mockData);
-        expect(fetch).toHaveBeenCalledWith(`${import.meta.env.VITE_API_URL}/api/product/${mockData.id}`);
+        expect(fetch).toHaveBeenCalledWith(`${import.meta.env.VITE_API_URL}/product/${mockData.id}`);
         expect(setCache).toHaveBeenCalledWith(`product_details_cache_${mockData.id}`, mockData);
     });
 
@@ -65,7 +65,7 @@ describe('Fetch Product Details:', () => {
 
         const data = await fetchProductDetails(mockData.id);
 
-        expect(fetch).toHaveBeenCalledWith(`${import.meta.env.VITE_API_URL}/api/product/${mockData.id}`);
+        expect(fetch).toHaveBeenCalledWith(`${import.meta.env.VITE_API_URL}/product/${mockData.id}`);
         expect(setCache).toHaveBeenCalledWith(`product_details_cache_${mockData.id}`, mockData);
         expect(data).toEqual(mockData);
     });
@@ -80,6 +80,6 @@ describe('Fetch Product Details:', () => {
         ));
 
         await expect(fetchProductDetails(mockData.id)).rejects.toThrow('Failed to fetch product');
-        expect(fetch).toHaveBeenCalledWith(`${import.meta.env.VITE_API_URL}/api/product/${mockData.id}`);
+        expect(fetch).toHaveBeenCalledWith(`${import.meta.env.VITE_API_URL}/product/${mockData.id}`);
     });
 });

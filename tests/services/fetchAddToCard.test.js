@@ -25,7 +25,7 @@ describe('Fetch Add To Cart:', () => {
         const data = await fetchAddToCart(mockData);
 
         expect(data).toEqual({ count: 1 });
-        expect(fetch).toHaveBeenCalledWith(`${VITE_API_URL}/api/cart`, {
+        expect(fetch).toHaveBeenCalledWith(`${VITE_API_URL}/cart`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
