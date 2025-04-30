@@ -84,7 +84,7 @@ describe("ProductDetailsPage", () => {
             product: mockProduct,
             loading: false,
             error: null,
-        })
+        });
 
         renderWithRouter();
 
