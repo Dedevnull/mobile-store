@@ -21,8 +21,23 @@ The application has two views:
 - `npm run lint` — Checks code style and quality with ESLint
 
 ## Requeriments
+For the application to work properly, you must configure the environment variables. Use the `.env.example` file as a reference.
 
-Create a `.env` file similar to `.env.example` and replace `https://set-your-api-url.com/api` by the correct API URL
+1. Copy the `.env.example` file and rename it to .env:
+   ```bash
+   cp .env.example .env
+   ```
+2. Open the `.env` file and replace the example URL with the correct one:
+   ```
+   # Antes:
+   VITE_API_URL=https://set-your-api-url.com/api
+   VITE_CACHE_DURATION_MILLIS=3600000
+
+   # Después:
+   VITE_API_URL=https://itx-frontend-test.onrender.com/api
+   VITE_CACHE_DURATION_MILLIS=3600000
+   ```
+3. Save the file.
 
 ## Install and execute the aplication
 
