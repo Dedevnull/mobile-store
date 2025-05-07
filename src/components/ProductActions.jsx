@@ -10,8 +10,8 @@ export const ProductActions = ({ product }) => {
     const { colors, storages } = options;
 
     const { form, onChange } = useForm({
-        colorCode: colors.length === 1 ? colors[0].code : null,
-        storageCode: storages.length === 1 ? storages[0].code : null,
+        colorCode: colors.length > 0 ? colors[0].code : null,
+        storageCode: storages.length > 0 ? storages[0].code : null,
     });
 
     const addToCart = async (event) => {
