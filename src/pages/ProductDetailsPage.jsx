@@ -5,6 +5,7 @@ import { ProductActions } from '../components/ProductActions';
 import { ProductDetailDescription } from '../components/ProductDetailsDescription';
 import { useProduct } from '../hooks/useProduct';
 import { LuArrowBigLeftDash } from "react-icons/lu";
+import { ProductImage } from '../components/ProductImage';
 
 export const ProductDetailsPage = () => {
   const { id } = useParams();
@@ -19,7 +20,7 @@ export const ProductDetailsPage = () => {
       <button onClick={() => navigate(-1)} className='cursor-pointer flex right-0 font-bold text-gray-800'><LuArrowBigLeftDash className='text-3xl' />go back</button>
       <div className='flex flex-col xl:flex-row lg:flex-row justify-center'>
         <div className="flex justify-center xl:w-1/2 lg:w-1/2">
-          <img src={product.imgUrl} alt={`${product.brand}_${product.model}`} className="max-w-full max-h-[600px] object-contain" />
+          <ProductImage product={product} />
         </div>
         <div>
           <ProductDetailDescription product={product} />
