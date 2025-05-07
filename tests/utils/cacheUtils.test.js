@@ -54,8 +54,9 @@ describe('Cache Utilities:', () => {
   });
 
   test('Should validate cache expiration correctly', () => {
-    const validTimestamp = Date.now() - 1000;
-    const expiredTimestamp = Date.now() - (VITE_CACHE_DURATION_MILLIS + 1000);
+    const timeInMillis = Date.now();
+    const validTimestamp = timeInMillis - 1000;
+    const expiredTimestamp = timeInMillis - (VITE_CACHE_DURATION_MILLIS + 1000);
  
     expect(isCacheValid(validTimestamp)).toBe(true);
     expect(isCacheValid(expiredTimestamp)).toBe(false);
