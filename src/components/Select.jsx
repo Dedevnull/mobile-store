@@ -11,7 +11,7 @@ export const Select = ({ options = [], onChange, name, label, placeholder }) => 
     };
 
     useEffect(() => {
-        if (options.length === 1) {
+        if (options.length > 0) {
             setSelectedValue(JSON.stringify(options[0]));
         }
     }, [options]);
@@ -28,6 +28,7 @@ export const Select = ({ options = [], onChange, name, label, placeholder }) => 
                 name={name}
                 onChange={handleChange}
                 className="border mx-1 p-2 rounded-md"
+                disabled={options.length === 0}
             >
                 <option value="" disabled>
                     {placeholder || 'Select…'}

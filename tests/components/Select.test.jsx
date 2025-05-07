@@ -20,10 +20,10 @@ describe('Select:', () => {
         expect(screen.getByText('Test Label')).toBeInTheDocument();
     });
 
-    test('Renders a disabled placeholder option by default', () => {
+    test('Renders a disabled placeholder option', () => {
         render(
             <Select
-                options={options}
+                options={[]}
                 name="colors"
                 placeholder="Choose an option"
             />
@@ -65,8 +65,7 @@ describe('Select:', () => {
         });
     });
 
-    test('Defaults to the only option when options array has length 1 and no value prop', () => {
-        const options = [{ code: 1, name: 'Option One' }];
+    test('Should set by default the first option', () => {
         render(
             <Select
                 options={options}
