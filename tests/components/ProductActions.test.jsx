@@ -46,7 +46,17 @@ describe("ProductActions:", () => {
 
     test('Should alert when form is submitted without selecting options', () => {
         vi.stubGlobal('alert', vi.fn());
-        renderWithContext();
+        render(
+            <CartContext.Provider value={{ increaseCount }}>
+                <ProductActions product={{
+                    id: '001',
+                    options: {
+                        colors: [],
+                        storages: []
+                    }
+                }} />
+            </CartContext.Provider>
+        );
 
         fireEvent.submit(screen.getByRole('button'));
 
